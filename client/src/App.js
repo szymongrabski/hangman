@@ -1,10 +1,18 @@
-import React, { useEffect, useState } from "react";
-import Game from "./components/Game";
+import React from "react";
+import Home from "./pages/Home";
+import Dashboard from "./pages/Dashboard";
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
 function App() {
 
 
   return (
-    <Game />
+    <BrowserRouter>
+      <Routes>
+        <Route path={"/"} element={<Home/>}/>
+        <Route path={"/dashboard"} element={<Dashboard/>}/>
+      </Routes>
+    </BrowserRouter>
   )
 }
 
