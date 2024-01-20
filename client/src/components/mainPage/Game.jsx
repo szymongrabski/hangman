@@ -42,15 +42,15 @@ function Game() {
 
   return (
     <div>
-      <h1>Hangman</h1>
+      <h1>Wisielec</h1>
       {gameOver ? (
         <div>
-          {won ? 'You won!' : 'You lost!'}
+          {won ? 'Wygrałeś!' : 'Przegrałeś!'}
           <button onClick={() => resetGame()}>Play again!</button>
         </div>
       ) : (
         <div>
-          <p>Incorrect guesses: {incorrectGuesses}</p>
+          <p>Próby: {5 - incorrectGuesses}</p>
           <p>
             {word
               .split('')

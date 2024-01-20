@@ -1,9 +1,10 @@
-import RegisterPanel from '../components/RegisterPanel'
+import HomePanel from "../components/home/HomePanel"
+
 
 const Home = () => {
     return (
         <div>
-            <RegisterPanel />
+            <HomePanel />
         </div>
     )
 }
