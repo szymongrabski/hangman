@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import { useCookies } from 'react-cookie'
+import { AuthContext } from "../contexts/AuthContext";
 
 const RegistrationForm = () => {
-  const [cookie, setCookie, removeCookie] = useCookies(['user']);
+  const [cookies, setCookie, removeCookie] = useCookies(['user']);
   const [error, setError] = useState(null);
+  const { login } = useContext(AuthContext);
+
   let navigate = useNavigate();
 
   const formik = useFormik({
@@ -38,9 +41,10 @@ const RegistrationForm = () => {
         const success = response.status === 201;
   
         if (success) {
-          navigate('/mainpage');
+          login()
           formik.resetForm()
           setError(null)
+          navigate('/mainpage');
         }
       } catch (error) {
         console.error(error);
