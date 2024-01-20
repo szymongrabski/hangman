@@ -4,9 +4,9 @@ import * as Yup from "yup";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import { useCookies } from 'react-cookie'
-import { AuthContext } from "../contexts/AuthContext";
+import { AuthContext } from "../../../contexts/AuthContext";
 
-const LoginForm = () => {
+const UserLoginForm = () => {
   const [cookies, setCookie, removeCookie] = useCookies(['user'])
   const [error, setError] = useState(null);
   const { login } = useContext(AuthContext);
@@ -33,7 +33,7 @@ const LoginForm = () => {
         setCookie('UserId', response.data.userId)
         setCookie('AuthToken', response.data.token)
   
-        const success = response.status === 201;
+        const success = response.status === 200;
   
         if (success) {
           login();
@@ -74,4 +74,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default UserLoginForm;

@@ -2,8 +2,9 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from "./pages/Home";
 import MainPage from "./pages/MainPage";
-import { AuthProvider } from "./components/contexts/AuthContext";
-import { WordsProvider } from "./components/contexts/WordsContext";
+import { AuthProvider } from "./contexts/AuthContext";
+import { WordsProvider } from "./contexts/WordsContext";
+import AdminPanel from "./pages/AdminPanel";
 function App() {
 
 
@@ -14,6 +15,7 @@ function App() {
           <Routes>
             <Route path={"/"} element={<Home/>}/>
             <Route path={"/mainpage"} element={<MainPage/>}/>
+            <Route path={"/adminpanel"} element={<AdminPanel />}/>
           </Routes>
         </BrowserRouter>
       </WordsProvider>

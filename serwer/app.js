@@ -14,6 +14,9 @@ app.use('/users', usersRoute)
 const wordsRoute = require('./routes/words')
 app.use('/words', wordsRoute)
 
+const adminsRoute = require('./routes/admins')
+app.use('/admins', adminsRoute)
+
 app.listen(port, () => {
     console.log(`Server is running on: ${port} `)
 })

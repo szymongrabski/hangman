@@ -125,4 +125,26 @@ router.delete('/delete/:wordId', async (req, res) => {
   }
 });
 
+router.get('/search/:pattern', async (req, res) => {
+  const client = new MongoClient(process.env.MONGO_URI);
+
+  try {
+    await client.connect();
+    const database = client.db('app-data');
+    const words = database.collection('words');
+
+    const pattern = req.params.pattern;
+
+    const regex = new RegExp(pattern, 'i');
+
+    const returnedWords = await words.find({ word: regex }).toArray();
+    res.json(returnedWords);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  } finally {
+    await client.close();
+  }
+});
+
 module.exports = router;

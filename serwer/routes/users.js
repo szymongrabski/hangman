@@ -39,7 +39,7 @@ router.post('/signup', async (req, res) => {
         const existingUser = await users.findOne({ username })
 
         if (existingUser) {
-            return res.status(409).send({message: 'Username już zajęty'})
+            return res.status(409).send({message: 'Nazwa użytkownika już zajęta'})
         }
 
         const data = {
@@ -78,7 +78,7 @@ router.post('/login', async (req, res) => {
             if (correctPassword) {
                 const token = generateAuthToken(user.user_id, username, 'user')
 
-                res.status(201).json({ token, userId: user.user_id, username})
+                res.status(200).json({ token, userId: user.user_id, username})
             } else {
                 res.status(400).send({message: 'Niepoprawne hasło'})
             }

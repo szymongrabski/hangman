@@ -4,9 +4,9 @@ import * as Yup from "yup";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import { useCookies } from 'react-cookie'
-import { AuthContext } from "../contexts/AuthContext";
+import { AuthContext } from "../../../contexts/AuthContext";
 
-const RegistrationForm = () => {
+const UserRegistrationForm = () => {
   const [cookies, setCookie, removeCookie] = useCookies(['user']);
   const [error, setError] = useState(null);
   const { login } = useContext(AuthContext);
@@ -85,4 +85,4 @@ const RegistrationForm = () => {
   );
 };
 
-export default RegistrationForm;
+export default UserRegistrationForm;

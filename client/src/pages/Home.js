@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import HomePanel from "../components/home/HomePanel"
-import { AuthContext } from "../components/contexts/AuthContext"
+import { AuthContext } from "../contexts/AuthContext"
 import LogOutButton from "../components/general/LogOutButton";
 
 
