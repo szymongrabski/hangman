@@ -1,0 +1,161 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+    color: white;
+    background: linear-gradient(to right, #124559, #598392);
+}
+
+.log-out-btn {
+    padding: 0.5em;
+    background-color: #eb5e28;
+    color: white;
+    border: none;
+    font-size: 16px;
+}
+
+.log-out-btn:hover {
+    cursor: pointer;
+    background-color: #eb5f28be;
+    box-shadow: 2px 2px 5px #124559;
+}
+
+.btn {
+    padding: 0.5em;
+    font-size: 16px;
+    border: none;
+    color: white;
+    background-color: #aec3b0;
+}
+
+.btn:hover {
+    cursor: pointer;
+    background-color: #598392;
+}
+
+/* GAME */
+
+.game-title {
+    text-align: center;
+    border-bottom: 1px solid #124559;
+    padding: 0.5em;
+}
+
+.letters {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr); 
+    gap: 1em;
+    margin: 2em 10%;
+}
+
+.category {
+    padding: 0.5em;
+    text-align: center;
+}
+
+.lifes {
+    padding: 0.5em;
+    text-align: center;
+
+}
+
+.letter {
+    padding: 1em;
+    border: none;
+    width: 100%; 
+    background-color: #aec3b0;
+    color: white;
+    font-size: 16px;
+}
+
+.letter:hover {
+    cursor: pointer;
+    background-color: #598392;
+    box-shadow: 2px 2px 5px #124559;
+}
+
+.guesses {
+    font-size: 30px;
+    text-align: center;
+}
+
+.buttons {
+    display: flex;
+    gap: 1em;
+    justify-content: flex-end;
+    margin: 1em;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+}
+
+.form {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 1em;
+    margin: 1em;
+    background-color: #aec3b0;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+
+.form-field-content {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 1em;
+}
+
+.form-button {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.form-title {
+    text-align: center;
+}
+
+.error {
+    color: #eb5e28;
+    font-size: 12px;
+}
+
+.form-btn {
+    padding: 0.5em;
+    border: none;
+    background-color: #598392;
+    color: white;
+}
+
+.form-btn:hover {
+    cursor: pointer;
+    background-color: #598392ca;
+}
+
+.info-item {
+    margin: 5em 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.function-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1em;
+}
+
+.end-item {
+    text-align: center;
+}

@@ -55,32 +55,41 @@ const UserRegistrationForm = () => {
   })
 
   return (
-    <div>
-      <form onSubmit={formik.handleSubmit} onReset={formik.handleReset}>
-        <div>
-          <label htmlFor="username">Nazwa użytkownika:</label>
-          <input id="username" type="text" {...formik.getFieldProps('username')} />
+    <div className="form-container">
+      <form className="form" onSubmit={formik.handleSubmit} onReset={formik.handleReset}>
+        <h2 className="form-title">Rejestracja</h2>
+        <div className="form-field">
+          <div className="form-field-content">
+            <label htmlFor="username">Nazwa użytkownika:</label>
+            <input id="username" type="text" {...formik.getFieldProps('username')} />
+          </div>
           {formik.touched.username && formik.errors.username ? (
-            <div>{formik.errors.username}</div>
+            <div className="error">{formik.errors.username}</div>
           ) : null}
         </div>
-        <div>
-          <label htmlFor="password">Hasło:</label>
-          <input id="password" type="password" {...formik.getFieldProps('password')} />
+        <div className="form-field">
+          <div className="form-field-content">
+            <label htmlFor="password">Hasło:</label>
+            <input id="password" type="password" {...formik.getFieldProps('password')} />
+          </div>
           {formik.touched.password && formik.errors.password ? (
-            <div>{formik.errors.password}</div>
+            <div className="error">{formik.errors.password}</div>
           ) : null}
         </div>
-        <div>
-          <label htmlFor="confirmPassword">Potwierdź hasło:</label>
-          <input id="confirmPassword" type="password" {...formik.getFieldProps('confirmPassword')}/>
+        <div className="form-field">
+          <div className="form-field-content">
+            <label htmlFor="confirmPassword">Potwierdź hasło:</label>
+            <input id="confirmPassword" type="password" {...formik.getFieldProps('confirmPassword')}/>
+          </div>
           {formik.touched.confirmPassword && formik.errors.confirmPassword ? (
-            <div>{formik.errors.confirmPassword}</div>
+            <div className="error">{formik.errors.confirmPassword}</div>
           ) : null}
         </div>
-        <button type="submit">Rejestruj</button>
+        <div className="form-button">
+          <button className="form-btn" type="submit">Rejestruj</button>
+        </div>
       </form>
-      {error && <p>{error}</p>}
+      {error && <p className="error">{error}</p>}
     </div>
   );
 };

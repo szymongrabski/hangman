@@ -4,10 +4,10 @@ import * as Yup from "yup";
 import axios from 'axios';
 import { useCookies } from 'react-cookie'
 
-const UpdateUserForm = () => {
+const UpdateUserForm = ({ showForm }) => {
   const [cookies, setCookie, removeCookie] = useCookies(['user'])
   const [error, setError] = useState(null)
-
+  
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -45,24 +45,34 @@ const UpdateUserForm = () => {
 
   return (
     <div>
-        <form onSubmit={formik.handleSubmit} onReset={formik.handleReset}>
-            <div>
-                <label htmlFor="username">Nazwa użytkownika:</label>
-                <input id="username" type="text" {...formik.getFieldProps('username')} />
-                {formik.touched.username && formik.errors.username ? (
-                <div>{formik.errors.username}</div>
-                ) : null}
-            </div>
-            <div>
-                <label htmlFor="password">Hasło:</label>
-                <input id="password" type="password" {...formik.getFieldProps('password')} />
-                {formik.touched.password && formik.errors.password ? (
-                <div>{formik.errors.password}</div>
-                ) : null}
-            </div>
-            <button type="submit">Zatwierdź zmiany</button>
-        </form>
-        {error && <p>{error}</p>}
+      { showForm && 
+        <div className="form-container">
+          <form className="form" onSubmit={formik.handleSubmit} onReset={formik.handleReset}>
+              <div className="form-field">
+                <div className="form-field-content">
+                  <label htmlFor="username">Nazwa użytkownika:</label>
+                  <input id="username" type="text" {...formik.getFieldProps('username')} />
+                </div>
+                  {formik.touched.username && formik.errors.username ? (
+                  <div className="error">{formik.errors.username}</div>
+                  ) : null}
+              </div>
+              <div className="form-field">
+                <div className="form-field-content">
+                  <label htmlFor="password">Hasło:</label>
+                  <input id="password" type="password" {...formik.getFieldProps('password')} />
+                </div>
+                  {formik.touched.password && formik.errors.password ? (
+                  <div className="error">{formik.errors.password}</div>
+                  ) : null}
+              </div>
+              <div className="form-button">
+                <button className="form-btn" type="submit">Zatwierdź zmiany</button>
+              </div>
+          </form>
+          {error && <p>{error}</p>}
+        </div>
+      }
     </div>
   );
 };

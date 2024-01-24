@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import axios from "axios";
 
 const Game = () => {
@@ -49,7 +50,7 @@ const Game = () => {
 
   useEffect(() => {
     if (words && words.length > 0) {
-        if (incorrectGuesses > 5) {
+        if (incorrectGuesses >= 5) {
             setGameOver(true);
             setWon(false);
         }
@@ -76,41 +77,47 @@ const Game = () => {
 
   return (
     <div>
-      <h1>Wisielec</h1>
+      <h1 className="game-title">Wisielec</h1>
       {loading ? (
         <p>Ładowanie...</p>
       ) : (
         <div>
           {gameOver ? (
-            <div>
+            <div className="end-item">
               {won ? (
                 <div>
                     <p>Wygrałeś!</p>
                     <p>{word} - {definition}</p>
                 </div>
               ) : (
-                    <p>Przegrałeś!</p>
+                    <p>Przegrałeś! Hasło to: {word}</p>
               )}
-              <button onClick={() => resetGame()}>Zagraj ponownie!</button>
+              <button className="btn" onClick={() => resetGame()}>Zagraj ponownie!</button>
             </div>
           ) : (
             <div>
-              <p>Kategoria: {category} </p>
-              <p>Próby: {5 - incorrectGuesses}</p>
-              <p>
+              <div className="category">{category} </div>
+              <div className="lifes">
+                {Array(5 - incorrectGuesses)
+                  .fill()
+                  .map((_, index) => (
+                    <FavoriteBorderIcon key={index} />
+                  ))}
+              </div>
+              <div className="guesses">
                 {word
                   .split("")
                   .map((letter, index) => (guesses.includes(letter) ? letter : "_ "))}
-              </p>
-              <p>
+              </div>
+              <div className="letters">
                 {"a, ą, b, c, ć, d, e, ę, f, g, h, i, j, k, l, ł, m, n, ń, o, ó, p, r, s, ś, t, u, w, y, z, ź, ż"
                   .split(",")
                   .map((letter) => (
-                    <button key={letter} onClick={() => handleGuess(letter.trim())}>
+                    <button className="letter" key={letter} onClick={() => handleGuess(letter.trim())}>
                       {letter.trim()}
                     </button>
                   ))}
-              </p>
+              </div>
             </div>
           )}
         </div>

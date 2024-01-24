@@ -16,18 +16,30 @@ const HomePanel = () => {
 
     return (
         <div>
-            <h2>{toggleFunction ? "Admin" : toggle ? "Logowanie" : "Rejestracja"}</h2>
+            <div className="function-item">
+                <h2>{toggleFunction ? "Admin" : "Użytkownik"}</h2>
+                <div>
+                    <button className="btn" onClick={() => setToggleFunction(prevValue => !prevValue)}>
+                        Admin/Użytkownik
+                    </button>
+                </div>
+            </div>
             {toggleFunction ? (
                 toggle ? <AdminLoginForm /> : <AdminRegistrationForm />
             ) : (
                 toggle ? <UserLoginForm /> : <UserRegistrationForm />
             )}
-            <button onClick={handleToggle}>
-                {toggle ? "Zarejestruj się" : "Zaloguj się"}
-            </button>
-            <button onClick={() => setToggleFunction(prevValue => !prevValue)}>
-                Zmień Funkcje
-            </button>
+            {toggle ? (
+                <div className="info-item">
+                    <p>Nie masz konta?</p>
+                    <button className="btn" onClick={handleToggle}>Zarejestruj się</button>
+                </div>
+            ): (
+                <div className="info-item">
+                    <p>Masz już konto?</p>
+                    <button className="btn" onClick={handleToggle}>Zaloguj się</button>
+                </div>
+            )}
         </div>
     );
 };

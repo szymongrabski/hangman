@@ -4,6 +4,8 @@ import axios from "axios";
 import LogOutButton from "../components/general/LogOutButton";
 import { AuthContext } from "../contexts/AuthContext"
 import WordsPanel from "../components/adminPanel/words/WordsPanel";
+import UsersPanel from "../components/adminPanel/users/UsersPanel";
+import SelfPanel from "../components/adminPanel/admin/SelfPanel";
 
 const AdminPanel = () => {
     const [isAdmin, setIsAdmin] = useState(false);
@@ -43,7 +45,9 @@ const AdminPanel = () => {
             <div>
                 {isAdmin ? (
                     <div>
+                        <SelfPanel />
                         <WordsPanel />
+                        <UsersPanel />
                         <LogOutButton />
                     </div>
                 ) : (

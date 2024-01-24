@@ -5,6 +5,7 @@ import MainPage from "./pages/MainPage";
 import { AuthProvider } from "./contexts/AuthContext";
 import { WordsProvider } from "./contexts/WordsContext";
 import AdminPanel from "./pages/AdminPanel";
+import "./styles/style.css"
 function App() {
 
 
