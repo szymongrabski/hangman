@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const mqtt = require('mqtt')
 require("dotenv").config({path: "./config.env"});
 
 const app = express();
@@ -16,6 +17,9 @@ app.use('/words', wordsRoute)
 
 const adminsRoute = require('./routes/admins')
 app.use('/admins', adminsRoute)
+
+const rankingRoute = require('./routes/ranking')
+app.use('/ranking', rankingRoute)
 
 app.listen(port, () => {
     console.log(`Server is running on: ${port} `)

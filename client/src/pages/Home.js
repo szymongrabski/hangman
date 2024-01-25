@@ -3,7 +3,6 @@ import HomePanel from "../components/home/HomePanel"
 import { AuthContext } from "../contexts/AuthContext"
 import LogOutButton from "../components/general/LogOutButton";
 
-
 const Home = () => {
     const { loggedIn } = useContext(AuthContext);
 

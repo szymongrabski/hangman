@@ -95,6 +95,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1em;
+    justify-content: space-between;
     padding: 1em;
     margin: 1em;
     background-color: #aec3b0;
@@ -105,7 +106,6 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1em;
 }
 
 .form-field-content {
@@ -158,4 +158,30 @@ body {
 
 .end-item {
     text-align: center;
+}
+
+.main-item {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+.ranking-content {
+    margin: 1em;
+    padding: 1em 2em;
+    background-color: #124559;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ranking-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
 }

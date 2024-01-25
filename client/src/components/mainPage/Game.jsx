@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import axios from "axios";
+import { useCookies } from 'react-cookie'
 
 const Game = () => {
+  const [cookies, setCookie, removeCookie] = useCookies(['user'])
   const [words, setWords] = useState([]);
   const [word, setWord] = useState("");
   const [category, setCategory] = useState("")
@@ -27,6 +29,18 @@ const Game = () => {
       setLoading(false); 
     }
   };
+
+  const updateRanking = async (amount) => {
+    try {
+      const response = await axios.put("http://localhost:5000/ranking/user", {
+        userId: cookies.UserId,
+        username: cookies.Username,
+        scoreChange: amount,
+      })
+    } catch (error) {
+      console.error("Error updating ranking:", error)
+    } 
+  }
 
   useEffect(() => {
     if (words.length > 0) {
@@ -53,11 +67,13 @@ const Game = () => {
         if (incorrectGuesses >= 5) {
             setGameOver(true);
             setWon(false);
+            updateRanking(-1)
         }
       
         if (word.split("").every((letter) => guesses.includes(letter))) {
             setGameOver(true);
             setWon(true);
+            updateRanking(1)
         }
     }
   }, [incorrectGuesses, guesses, word]);

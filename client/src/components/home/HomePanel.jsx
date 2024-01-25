@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { useCookies } from 'react-cookie';
 import UserRegistrationForm from "./user/UserRegistrationForm";
 import UserLoginForm from "./user/UserLoginForm";
 import AdminLoginForm from "./admin/AdminLoginForm";
 import AdminRegistrationForm from "./admin/AdminRegisterPanel";
+import Ranking from "../Ranking";
 
 const HomePanel = () => {
-    const [cookies, setCookie, removeCookie] = useCookies(['user']);
     const [toggle, setToggle] = useState(false);
     const [toggleFunction, setToggleFunction] = useState(false);
 
@@ -24,11 +23,16 @@ const HomePanel = () => {
                     </button>
                 </div>
             </div>
-            {toggleFunction ? (
-                toggle ? <AdminLoginForm /> : <AdminRegistrationForm />
-            ) : (
-                toggle ? <UserLoginForm /> : <UserRegistrationForm />
-            )}
+            <div className="main-item">
+                <div>
+                    {toggleFunction ? (
+                        toggle ? <AdminLoginForm /> : <AdminRegistrationForm />
+                    ) : (
+                        toggle ? <UserLoginForm /> : <UserRegistrationForm />
+                    )}
+                </div>
+                <Ranking />
+            </div>
             {toggle ? (
                 <div className="info-item">
                     <p>Nie masz konta?</p>
