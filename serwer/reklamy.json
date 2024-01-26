@@ -1,0 +1,29 @@
+{
+    "advertising": [
+      {
+        "id": 6,
+        "title": "SneakerStore",
+        "description": "Jesteśmy sklepem z najnowszymi i najmodniejszymi butami, Odwiedź nas!",
+        "imageUrl": "https://static.posters.cz/image/1300/plakaty/sneakers-hall-of-fame-i116105.jpg"
+      },
+      {
+        "id": 8,
+        "title": "PhotoSkills",
+        "description": "Warsztaty fotograficzne dla początkujących i zaawansowanych. Naucz się robić doskonałe zdjęcia!",
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYqWsQ7_fcd4SgF9dqBltulwfmycjv2A3mQw&usqp=CAU"
+      },
+      {
+        "id": 10,
+        "title": "SmakoszRestaurant",
+        "description": "Restauracja 'Smakosz' zaprasza na wyjątkowe dania kuchni fusion. Spróbuj czegoś nowego!",
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_HcB87Tz0ipjM7-DVoBTUjED5Rtf0zWr8nw&usqp=CAU"
+      },
+      {
+        "id": 11,
+        "title": "EnglishMasters",
+        "description": "Korepetycje z języka angielskiego dla dzieci i dorosłych. Naucz się mówić płynnie i pewnie!",
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHkwzSO0DSTd7G3BmmyupH7Iph9Gs22L2-lg&usqp=CAU"
+      }
+    ]
+  }
+  

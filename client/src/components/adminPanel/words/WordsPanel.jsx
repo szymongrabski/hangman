@@ -49,7 +49,7 @@ const WordsPanel = () => {
 
 
   return (
-    <div>
+    <div className="admin-item">
       <h2>Lista słów</h2>
       <div>
         <label htmlFor="searchPattern">Wyszukaj słowo:</label>
@@ -60,14 +60,14 @@ const WordsPanel = () => {
           onChange={(e) => setSearchPattern(e.target.value)}
         />
       </div>
-      <ul>
+      <ul className="admin-list">
         {words.map((word) => (
           <li key={word.word_id}>
             <div>
               <strong>{word.word}</strong> - {word.category} ({word.definition})
-              <div>
-                <button onClick={() => handleDelete(word.word_id)}>Usuń</button>
-                <button onClick={() => handleEdit(word)}>Edytuj</button>
+              <div className="admin-buttons">
+                <button className="admin-btn" onClick={() => handleEdit(word)}>Edytuj</button>
+                <button className="admin-btn del-btn" onClick={() => handleDelete(word.word_id)}>Usuń</button>
               </div>
             </div>
           </li>

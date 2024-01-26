@@ -6,6 +6,7 @@ import { AuthContext } from "../contexts/AuthContext"
 import WordsPanel from "../components/adminPanel/words/WordsPanel";
 import UsersPanel from "../components/adminPanel/users/UsersPanel";
 import SelfPanel from "../components/adminPanel/admin/SelfPanel";
+import RankingPanel from "../components/adminPanel/ranking/RankingPanel";
 
 const AdminPanel = () => {
     const [isAdmin, setIsAdmin] = useState(false);
@@ -46,9 +47,14 @@ const AdminPanel = () => {
                 {isAdmin ? (
                     <div>
                         <SelfPanel />
-                        <WordsPanel />
-                        <UsersPanel />
-                        <LogOutButton />
+                        <div className="main-item">
+                            <UsersPanel />
+                            <WordsPanel />
+                            <RankingPanel />
+                        </div>
+                        <div className="log">
+                            <LogOutButton />
+                        </div>
                     </div>
                 ) : (
                     <p>Nie masz uprawnień administratora</p>

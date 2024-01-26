@@ -2,6 +2,7 @@ import { useContext } from "react"
 import HomePanel from "../components/home/HomePanel"
 import { AuthContext } from "../contexts/AuthContext"
 import LogOutButton from "../components/general/LogOutButton";
+import Advertisements from "../components/general/Advertisement";
 
 const Home = () => {
     const { loggedIn } = useContext(AuthContext);

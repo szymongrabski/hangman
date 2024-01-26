@@ -45,31 +45,39 @@ const EditWordForm = ({ setWords, word, onCancel }) => {
   });
 
   return (
-    <div>
+    <div className="form-container">
       <form onSubmit={formik.handleSubmit} onReset={formik.handleReset}>
-        <div>
-          <label htmlFor="word">Słowo:</label>
-          <input id="word" type="text" {...formik.getFieldProps('word')} />
+        <div className="form-field">
+          <div className="form-field-content">
+            <label htmlFor="word">Słowo:</label>
+            <input id="word" type="text" {...formik.getFieldProps('word')} />
+          </div>
           {formik.touched.word && formik.errors.word ? (
-            <div>{formik.errors.word}</div>
+            <div className="error">{formik.errors.word}</div>
           ) : null}
         </div>
-        <div>
-          <label htmlFor="category">Kategoria:</label>
-          <input id="category" type="text" {...formik.getFieldProps('category')} />
+        <div className="form-field">
+          <div className="form-field-content">
+            <label htmlFor="category">Kategoria:</label>
+            <input id="category" type="text" {...formik.getFieldProps('category')} />
+          </div>          
           {formik.touched.category && formik.errors.category ? (
-            <div>{formik.errors.category}</div>
+            <div className="error">{formik.errors.category}</div>
           ) : null}
         </div>
         <div>
-          <label htmlFor="definition">Definicja:</label>
-          <textarea id="definition" {...formik.getFieldProps('definition')} />
+          <div className="form-field-content">
+            <label htmlFor="definition">Definicja:</label>
+            <textarea id="definition" {...formik.getFieldProps('definition')} />
+          </div>
           {formik.touched.definition && formik.errors.definition ? (
-            <div>{formik.errors.definition}</div>
+            <div className="error">{formik.errors.definition}</div>
           ) : null}
         </div>
-        <button type="submit">Akceptuj zmiany</button>
-        <button onClick={onCancel}>Anuluj</button>
+        <div className="form-button">
+          <button className="admin-btn del-btn" onClick={onCancel}>Anuluj</button>
+          <button className="admin-btn" type="submit">Akceptuj zmiany</button>
+        </div>
       </form>
     </div>
   );

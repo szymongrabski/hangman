@@ -30,16 +30,16 @@ const UsersPanel = () => {
   }
 
   return (
-    <div>
+    <div className="admin-item">
       <h2>Lista Użytkowników</h2>
-      <ul>
+      <ul className="admin-list">
         {users.map((user) => (
           <li key={user.user_id}>
             <div>
               <strong>{user.username}</strong>
             </div>
-            <div>
-                <button onClick={() => handleDelete(user.user_id)}>Usuń</button>
+            <div className="admin-btn-container">
+                <button className="admin-btn del-btn" onClick={() => handleDelete(user.user_id)}>Usuń</button>
             </div>
           </li>
         ))}

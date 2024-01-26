@@ -38,7 +38,7 @@ const Ranking = () => {
     return (
         <div className="ranking-container">
             <div className="ranking-content">
-                <h2>Ranking</h2>
+                <h2>TOP 5</h2>
                 <ul className="ranking-list">
                     {ranking.map((user, index) => (
                         <li

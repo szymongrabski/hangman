@@ -34,8 +34,10 @@ const SelfPanel = () => {
 
   return (
     <div>
-      <button  onClick={handleDeleteSelf}>Usuń konto</button>
-      <button onClick={() => setEditAdmin(prevValue => !prevValue)}>Edytuj</button>
+      <div className="admin-buttons">
+        <button  className="btn" onClick={() => setEditAdmin(prevValue => !prevValue)}>Edytuj</button>
+        <button className="log-out-btn" onClick={handleDeleteSelf}>Usuń konto</button>
+      </div>
       {editAdmin && (
         <EditAdminForm userId={cookies.UserId} username={cookies.Username} onCancel={handleEditCancel} />
       )}
