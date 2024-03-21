@@ -23,4 +23,4 @@ The frontend of the application is responsible for the user interface, handles g
 - Updates the ranking after each game.
 
 ### SSE
-The application utilizes Server-Sent Events to dynamically display ads in the user interface.
+- The application utilizes Server-Sent Events to dynamically display ads in the user interface.
