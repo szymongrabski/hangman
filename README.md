@@ -22,5 +22,5 @@ The frontend of the application is responsible for the user interface, handles g
 - Uses MQTT for handling player rankings.
 - Updates the ranking after each game.
 
-## Displaying Ads (SSE)
+### SSE
 The application utilizes Server-Sent Events to dynamically display ads in the user interface.
